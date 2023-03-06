@@ -1,6 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\AddressesController;
+use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\FuelTypesController;
+use App\Http\Controllers\Admin\GearboxesController;
+use App\Http\Controllers\Admin\RentalsController;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +23,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::group(['middleware' => SetLocale::class], function () {
+    Route::get('/', HomeController::class)->name('home');
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified', isAdmin::class]], function () {
+//        Route::get('/', DashBoardController::class)->name('dashboard');
+//        Route::delete('/product/file/{file}', [ProductsController::class, 'destroyFile'])->name('product.destroy-file');
+        Route::resources([
+            'rentals' => RentalsController::class,
+            'categories' => CategoriesController::class,
+            'fuelTypes' => FuelTypesController::class,
+            'gearboxes' => GearboxesController::class,
+            'addresses'=> AddressesController::class,
+            'users'=> UsersController::class,
+        ]);
+    });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,4 +53,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\GearboxesController;
 use App\Http\Controllers\Admin\RentalsController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\SetLocale;
@@ -32,6 +33,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::group(['middleware' => SetLocale::class], function () {
+    Route::get('/image', [ImageController::class,'index'])->middleware(['auth', 'verified'])->name('image.index');
+    Route::post('/image', [ImageController::class,'store'])->middleware(['auth', 'verified'])->name('image.store');
     Route::get('/', HomeController::class)->name('home');
     Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified', isAdmin::class]], function () {
 //        Route::get('/', DashBoardController::class)->name('dashboard');

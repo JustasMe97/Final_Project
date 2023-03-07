@@ -23,30 +23,61 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/">Pradžia<span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Automobiliai<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Kontaktai<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Apie<span class="sr-only">(current)</span></a>
+                        </li>
+{{--                        @if (auth()?->user()?->isAdmin())--}}
+{{--                            <li class="nav-item active">--}}
+{{--                                <a class="nav-link" href="{{route('rentals.index')}}">Automobiliai<span--}}
+{{--                                        class="sr-only">(current)</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item active">--}}
+{{--                                <a class="nav-link" href="{{route('categories.index')}}">Kategorijos<span--}}
+{{--                                        class="sr-only">(current)</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item active">--}}
+{{--                                <a class="nav-link" href="{{route('fuelTypes.index')}}">Kuro tipai<span--}}
+{{--                                        class="sr-only">(current)</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item active">--}}
+{{--                                <a class="nav-link" href="{{route('gearboxes.index')}}">Pavarų dėžės<span--}}
+{{--                                        class="sr-only">(current)</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item active">--}}
+{{--                                <a class="nav-link" href="{{route('addresses.index')}}">Adresai<span--}}
+{{--                                        class="sr-only">(current)</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item active">--}}
+{{--                                <a class="nav-link" href="{{route('users.index')}}">Vartotojai<span--}}
+{{--                                        class="sr-only">(current)</span></a>--}}
+{{--                            </li>--}}
+{{--                        @endauth--}}
                         @if (auth()?->user()?->isAdmin())
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('rentals.index')}}">Automobiliai<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('categories.index')}}">Kategorijos<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('fuelTypes.index')}}">Kuro tipai<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('gearboxes.index')}}">Pavarų dėžės<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('addresses.index')}}">Adresai<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{route('users.index')}}">Vartotojai<span
-                                        class="sr-only">(current)</span></a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin valdymas
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('rentals.index')}}">Automobiliai<span
+                                            class="sr-only">(current)</span></a>
+                                    <a class="dropdown-item" href="{{route('categories.index')}}">Kategorijos<span
+                                            class="sr-only">(current)</span></a>
+                                    <a class="dropdown-item" href="{{route('fuelTypes.index')}}">Kuro tipai<span
+                                            class="sr-only">(current)</span></a>
+                                    <a class="dropdown-item" href="{{route('gearboxes.index')}}">Pavarų dėžės<span
+                                            class="sr-only">(current)</span></a>
+                                    <a class="dropdown-item" href="{{route('addresses.index')}}">Adresai<span
+                                            class="sr-only">(current)</span></a>
+                                    <a class="dropdown-item" href="{{route('users.index')}}">Vartotojai<span
+                                            class="sr-only">(current)</span></a>
+                                </div>
                             </li>
                         @endauth
                         @auth
@@ -70,7 +101,10 @@
                         @endauth
                         @guest
                             <li class="nav-item active">
-                                <a role="button" class="btn btn-dark bg-primary mr-1 ml-1" href="{{route('login')}}">Log in</a>
+                                <a role="button" class="btn btn-dark bg-primary mr-1 ml-1" href="{{route('login')}}">Prisijungti</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a role="button" class="btn btn-dark bg-primary mr-1 ml-1" href="{{route('register')}}">Registracija</a>
                             </li>
                         @endguest
                     </ul>

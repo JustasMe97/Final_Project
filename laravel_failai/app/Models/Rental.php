@@ -49,6 +49,10 @@ class Rental extends Model
     {
         return $this->belongsTo(Gearbox::class, 'gearbox_id');
     }
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'rental_id');
+    }
 
 
 }

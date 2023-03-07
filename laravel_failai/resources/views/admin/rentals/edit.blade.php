@@ -64,6 +64,10 @@
                    placeholder="Papildoma informacija.."
                    value="{{old('additional_info') ?? $rental->additional_info}}">
         </div>
+        <div class="form-group">
+            <label for="images"> Pasirinkite nuotrauką(-as)..</label>
+            <input type="file" id="images" name="images[]" multiple class="form-control">
+        </div>
         <button type="submit" class="btn btn-primary">Atnaujinti</button>
     </form>
 @endsection

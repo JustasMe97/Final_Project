@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RentalRequest;
+use App\Managers\ImagesManager;
 use App\Managers\RentalsManager;
+use App\Models\Image;
 use App\Models\Rental;
 
 class RentalsController extends Controller
 {
-    public function __construct(protected RentalsManager $rentalsManager)
+    public function __construct(protected RentalsManager $rentalsManager, protected ImagesManager $imgManager)
     {
     }
 
@@ -36,15 +38,22 @@ class RentalsController extends Controller
      */
     public function store(RentalRequest $request)
     {
-        $rental=$this->rentalsManager->createRental($request);
+        $rental = $this->rentalsManager->createRental($request);
+        if ($request->file('images')) {
+            foreach ($request->file('images') as $imagefile) {
+                $this->imgManager->createImage($imagefile, $rental);
+            }
+        }
         return redirect()->route('rentals.show', $rental);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Rental $rental)
-    {
+    public
+    function show(
+        Rental $rental
+    ) {
         return view('admin.rentals.show', compact('rental'));
     }
 
@@ -52,25 +61,34 @@ class RentalsController extends Controller
      * Show the form for editing the specified resource.
      */
 
-    public function edit(Rental $rental)
-    {
+    public
+    function edit(
+        Rental $rental
+    ) {
         return view('admin.rentals.edit', compact('rental'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(RentalRequest $request, Rental $rental)
-    {
-        $rental=$this->rentalsManager->updateRental($request, $rental);
+    public
+    function update(RentalRequest $request, Rental $rental) {
+        $rental = $this->rentalsManager->updateRental($request, $rental);
+        if ($request->file('images')) {
+            foreach ($request->file('images') as $imagefile) {
+                $this->imgManager->createImage($imagefile, $rental);
+            }
+        }
         return redirect()->route('rentals.show', $rental);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rental $rental)
-    {
+    public
+    function destroy(
+        Rental $rental
+    ) {
         $this->rentalsManager->deleteRental($rental);
         return redirect()->route('rentals.index');
     }

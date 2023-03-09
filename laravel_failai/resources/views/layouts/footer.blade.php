@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-dark text-center text-white">
+<footer class="text-center text-white" style="background-color: #7A918D;">
     <!-- Grid container -->
     <div class="container p-4">
         <!-- Section: Social media -->
@@ -58,7 +58,7 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="text-center p-3" style="background-color: #3E5142">
         © 2023 Copyright:
         <a class="text-white" href="">JustME</a>
     </div>

@@ -9,7 +9,9 @@ use App\Models\Category;
 use App\Models\FuelType;
 use App\Models\Gearbox;
 use App\Models\Image;
+use App\Models\Rental;
 use Illuminate\Database\Eloquent\Collection;
+use mysql_xdevapi\CollectionRemove;
 
 class ImagesManager
 {
@@ -27,5 +29,10 @@ class ImagesManager
         $data->save();
 
         return $data;
+    }
+    public function getImages(Rental $rental): Collection
+    {
+        $images= Image::where('rental_id', $rental->id)->get();
+        return $images;
     }
 }

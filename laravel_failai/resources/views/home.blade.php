@@ -54,7 +54,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md">
-                    <div class="card bg-dark text-light">
+                    <div class="card text-light" style="background-color: #7A918D">
                         <div class="card-body text-center">
                             <img class="img-fluid my-3 rounded-circle" src="/img/choose.jpg" alt="choose">
                             <h3 class="card-title mb-3">Išsirinkite automobilį.</h3>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-md">
-                    <div class="card bg-dark text-light">
+                    <div class="card text-light" style="background-color: #7A918D">
                         <div class="card-body text-center">
                             <img class="img-fluid my-3 rounded-circle" src="/img/book.svg" alt="choose">
                             <h3 class="card-title mb-3">Rezervuokite norimą automobilį</h3>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="col-md">
-                    <div class="card bg-dark text-light">
+                    <div class="card text-light" style="background-color: #7A918D">
                         <div class="card-body text-center">
                             <img class="img-fluid my-3 rounded-circle" src="/img/keys.png" alt="choose">
                             <h3 class="card-title mb-3">Mėgaukitės automobiliu.</h3>

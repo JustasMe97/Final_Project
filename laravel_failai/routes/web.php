@@ -38,6 +38,10 @@ Route::group(['middleware' => SetLocale::class], function () {
     Route::post('/image', [ImageController::class,'store'])->middleware(['auth', 'verified'])->name('image.store');
     Route::get('/', HomeController::class)->name('home');
     Route::get('/rental/{rental}', [\App\Http\Controllers\RentalsController::class, 'show'])->name('rental.show');
+    Route::get('/rentals', [\App\Http\Controllers\RentalsController::class, 'index'])->name('rental.index');
+    Route::get('/categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('category.index');
+    Route::post('/category', [\App\Http\Controllers\CategoriesController::class, 'show'])->name('category.show');
+    Route::get('/category/{category:id}', [\App\Http\Controllers\CategoriesController::class, 'show'])->name('category.showById');
 
     Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified', isAdmin::class]], function () {
 //        Route::get('/', DashBoardController::class)->name('dashboard');

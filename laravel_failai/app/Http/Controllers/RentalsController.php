@@ -16,4 +16,9 @@ class RentalsController extends Controller
         $images=$this->manager->getImages($rental);
         return view('public.rental.show', compact('rental', 'images'));
     }
+
+    public function index()
+    {
+        return view('public.rentals');
+    }
 }

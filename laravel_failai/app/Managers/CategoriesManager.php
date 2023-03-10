@@ -16,6 +16,13 @@ class CategoriesManager
         return $rentals;
     }
 
+    public function getCategoryById($category_id): Category
+    {
+        $category = Category::where('id', $category_id)->with(['parent'])->first();
+
+
+        return $category;
+    }
     public function createCategory(CategoryRequest $request): Category
     {
         $category = Category::create($request->all());

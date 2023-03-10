@@ -3,6 +3,8 @@
 namespace App\Managers;
 
 use App\Http\Requests\RentalRequest;
+use App\Models\Category;
+use App\Models\Image;
 use App\Models\Rental;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -32,5 +34,14 @@ class RentalsManager
     public function deleteRental(Rental $rental)
     {
         $rental->delete();
+    }
+
+    public function getRentalsByCategoryWithImages(Category $category): Collection
+    {
+        $rentals = Rental::where('category_id', $category->id)->with(['category', 'fuelType', 'gearbox'])->get();
+        foreach ($rentals as $rental){
+            $rental['image']=Image::where('rental_id', $rental->id)->first()->path;
+        }
+        return $rentals;
     }
 }

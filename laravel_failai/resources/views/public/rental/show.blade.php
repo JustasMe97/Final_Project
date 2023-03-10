@@ -81,7 +81,7 @@
             </button>
         </div>
         <div class="h3 my-2 row">Techniniai duomenys: </div>
-        <hr class="hr" />
+        <hr class="hr"/>
         <div class="my-2 row">
             <div class="col-12 col-md">Markė/modelis: </div>
             <div class="col fw-bold">{{$rental->brand}} {{$rental->model}}</div>
@@ -97,6 +97,10 @@
         <div class="my-2 row">
             <div class="col-12 col-md">Kategorija: </div>
             <div class="col fw-bold">{{$rental->category->name}}</div>
+        </div>
+        <div class="my-2 row">
+            <div class="col-12 col-md">Papildoma informacija: </div>
+            <div class="col fw-bold">{{$rental->additional_info}}</div>
         </div>
     </div>
 

@@ -3,7 +3,7 @@
 @section('title', 'Kategorijos')
 
 @section('content')
-    <a href="{{route('categories.create')}}" class="btn blue darken-4 mr-1">Create new</a>
+    <a href="{{route('categories.create')}}" class="btn blue darken-4 me-1">Create new</a>
     <table class="table my-4 table-bordered">
         <thead class="thead-dark">
         <tr>
@@ -23,7 +23,7 @@
             <th scope="row">{{$category->description}}</th>
             <th>
                 <div class="d-flex flex-row">
-                    <a role="button" class="btn btn-dark mr-1 ml-1"
+                    <a role="button" class="btn btn-dark ms-1 me-1"
                        href="{{route('categories.edit', $category->id)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
@@ -35,7 +35,7 @@
                     <form action="{{route('categories.destroy', $category->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger mr-1 ml-1">
+                        <button type="submit" class="btn btn-danger ms-1 me-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                  fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path
@@ -46,7 +46,7 @@
                             Pašalinti
                         </button>
                     </form>
-                    <a role="button" class="btn btn-secondary mr-1 ml-1"
+                    <a role="button" class="btn btn-secondary ms-1 me-1"
                        href="{{route('categories.show', $category->id)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-search" viewBox="0 0 16 16">

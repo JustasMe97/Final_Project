@@ -17,6 +17,13 @@ class RentalsManager
 
         return $rentals;
     }
+    public function getUserRentals($id): Collection
+    {
+        $rentals = Rental::where('user_id', $id)->with(['category', 'fuelType', 'gearbox'])->get();
+
+
+        return $rentals;
+    }
 
     public function createRental(RentalRequest $request): Rental
     {

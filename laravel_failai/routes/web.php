@@ -43,6 +43,15 @@ Route::group(['middleware' => SetLocale::class], function () {
     Route::post('/category', [\App\Http\Controllers\CategoriesController::class, 'show'])->name('category.show');
     Route::get('/category/{category:id}', [\App\Http\Controllers\CategoriesController::class, 'show'])->name('category.showById');
 
+    Route::group( ['middleware' => ['auth', 'verified']], function () {
+        Route::post('/userrentals', [\App\Http\Controllers\RentalsController::class, 'userRentals'])->name('user.rentals');
+        Route::post('/userrentalsstore', [\App\Http\Controllers\RentalsController::class, 'userRentalsStore'])->name('user.rentals.store');
+        Route::get('/userrentalscreate', [\App\Http\Controllers\RentalsController::class, 'userRentalsCreate'])->name('user.rentals.create');
+        Route::get('/userrentals/{rental}/edit', [\App\Http\Controllers\RentalsController::class, 'userRentalsEdit'])->name('user.rentals.edit');
+        Route::put('/userrentalsupdate/{rental}', [\App\Http\Controllers\RentalsController::class, 'userRentalsUpdate'])->name('user.rentals.update');
+
+    });
+
     Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified', isAdmin::class]], function () {
 //        Route::get('/', DashBoardController::class)->name('dashboard');
 //        Route::delete('/product/file/{file}', [ProductsController::class, 'destroyFile'])->name('product.destroy-file');

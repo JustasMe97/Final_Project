@@ -46,7 +46,7 @@
     {{--        <span class="visually-hidden">Next</span>--}}
     {{--    </button>--}}
     {{--</div>--}}
-    <div class="container w-50 d-flex flex-column justify-content-center">
+    <div class="container col col-lg-8 col-xl-6 mx-auto d-flex flex-column justify-content-center">
         <div class="h1 my-5 row d-flex justify-content-center">{{$rental->name}}</div>
         <div class="row mb-5">
             <div class="col-12 col-md">
@@ -83,23 +83,38 @@
         <div class="h3 my-2 row">Techniniai duomenys: </div>
         <hr class="hr"/>
         <div class="my-2 row">
-            <div class="col-12 col-md">Markė/modelis: </div>
+            <div class="col-12 col-md">
+                <img class="rounded me-1" src="/img/car-top-view-icon.svg" alt="price"
+                     style="height: 30px; width: 30px;">
+                Markė/modelis: </div>
             <div class="col fw-bold">{{$rental->brand}} {{$rental->model}}</div>
         </div>
         <div class="my-2 row">
-            <div class="col-12 col-md">Kuro tipas: </div>
+            <div class="col-12 col-md">
+                <img class="rounded me-1" src="/img/gas-station-icon.svg" alt="fuel"
+                     style="height: 30px; width: 30px;">
+                Kuro tipas: </div>
             <div class="col fw-bold">{{$rental->fuelType->name}}</div>
         </div>
         <div class="my-2 row">
-            <div class="col-12 col-md">Pavarų dėžės tipas: </div>
+            <div class="col-12 col-md">
+                <img class="rounded me-1" src="/img/manual-transmission-icon.svg" alt="gearbox"
+                     style="height: 30px; width: 30px;">
+                Pavarų dėžės tipas: </div>
             <div class="col fw-bold">{{$rental->gearbox->name}} </div>
         </div>
         <div class="my-2 row">
-            <div class="col-12 col-md">Kategorija: </div>
+            <div class="col-12 col-md">
+                <img class="rounded me-1" src="/img/list-view-icon.svg" alt="price"
+                     style="height: 30px; width: 30px;">
+                Kategorija: </div>
             <div class="col fw-bold">{{$rental->category->name}}</div>
         </div>
         <div class="my-2 row">
-            <div class="col-12 col-md">Papildoma informacija: </div>
+            <div class="col-12 col-md">
+                <img class="rounded me-1" src="/img/more-info-icon.svg" alt="price"
+                     style="height: 30px; width: 30px;">
+                Papildoma informacija: </div>
             <div class="col fw-bold">{{$rental->additional_info}}</div>
         </div>
     </div>

@@ -11,13 +11,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $brand
  * @property string $model
+ * @property string $power
  * @property int $fuel_type_id
  * @property FuelType $fuelType
  * @property int $category_id
  * @property Category $category
  * @property int $gearbox_id
  * @property Gearbox $gearbox
+ * @property int $user_id
+ * @property User $user
  * @property string $price
+ * @property string $year
  * @property string $additional_info
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -30,10 +34,13 @@ class Rental extends Model
         'name',
         'brand',
         'model',
+        'power',
         'fuel_type_id',
         'category_id',
         'gearbox_id',
+        'user_id',
         'price',
+        'year',
         'additional_info',
     ];
 
@@ -48,6 +55,10 @@ class Rental extends Model
     public function gearbox()
     {
         return $this->belongsTo(Gearbox::class, 'gearbox_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function images()
     {

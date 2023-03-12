@@ -1,7 +1,7 @@
 <header>
     <div class="d-flex align-items-center" style="background-color: #3E5142;">
         <div class="container">
-            <div class="row d-flex justify-content-end text-light mt-1 fw-bold align-items-center"
+            <div class="row d-flex justify-content-end text-light mt-2 fw-bold align-items-center"
                  style="background-color: #3E5142;">
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-end">
                     <img class="rounded" src="/img/email.svg" alt="gearbox" style="height: 30px; width: 30px;">
@@ -80,6 +80,17 @@
                                 <div class="dropdown-menu text-center" style="background-color: #7A918D;" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{route('profile.edit')}}">Redaguoti profilį</a>
                                     <div class="dropdown-divider"></div>
+
+                                    <form action="{{route('user.rentals')}}" method="post">
+                                        <input type="hidden" class="form-control"
+                                               name="user"
+                                               value="{{Auth::user()?->id}}">
+                                        <button type="submit" class="btn ms-2 me-2" style="background-color: #48bb78">
+                                            Mano automobiliai
+                                        </button>
+                                        @csrf
+                                    </form>
+                                    <div class="dropdown-divider"></div>
                                     <form action="{{route('logout')}}" method="post">
                                         <button type="submit" class="btn btn-danger ms-2 me-2">
                                             Atsijungti
@@ -91,10 +102,10 @@
                         @endauth
                         @guest
                             <li class="nav-item active">
-                                <a role="button" class="btn btn-dark bg-primary mr-1 ml-1" href="{{route('login')}}">Prisijungti</a>
+                                <a role="button" style="background-color: #48bb78" class="btn btn-dark ms-1 me-1" href="{{route('login')}}">Prisijungti</a>
                             </li>
                             <li class="nav-item active">
-                                <a role="button" class="btn btn-dark bg-primary mr-1 ml-1" href="{{route('register')}}">Registracija</a>
+                                <a role="button" style="background-color: #48bb78" class="btn btn-dark ms-1 me-1" href="{{route('register')}}">Registracija</a>
                             </li>
                         @endguest
                     </ul>

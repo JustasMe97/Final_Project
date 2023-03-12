@@ -69,5 +69,22 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="container row rounded py-3 d-flex justify-content-center align-items-center" style="background-color: #7A918D;">
+            <div class="col-12 mx-2 my-2 text-light fs-4 fw-bold d-flex justify-content-center"> Turi laisvą automobilį ir norėtum jį įdarbinti? Nieko nelauk ir išnuomok savo automobilį! </div>
+            @auth
+                <div class="col-12 d-flex justify-content-center my-3"><a class="btn btn text-light fs-5" style="background-color: #48bb78" href="{{route('user.rentals.create')}}">Pridėk savo automobilį</a></div>
+            @endauth
+            @guest
+                <div class="my-3 row text-center">
+                    <div class="col-12"><a class="btn btn text-light fs-5" style="background-color: #48bb78" href="{{route('login')}}">Prisijunk</a></div>
+                    <div class="col-12 text-light my-2">Dar neturi paskyros?</div>
+                    <div class="col-12"><a class="btn btn text-light fs-5" style="background-color: #48bb78" href="{{route('register')}}">Registruokis</a></div></div>
+            @endguest
+        </div>
+    </section>
+
+
 @endsection
 

@@ -30,6 +30,7 @@ class RentalRequest extends FormRequest
             'fuel_type_id' => ['required', 'integer', 'exists:fuel_types,id'],
             'category_id' => ['required', 'integer', 'exists:categories,id'],
             'gearbox_id' => ['required', 'integer', 'exists:gearboxes,id'],
+            'user_id' => ['nullable', 'integer', 'exists:users,id'],
             'price' => ['required', 'integer', 'min:0'],
             'additional_info' => ['nullable', 'string', 'min:3'],
         ];

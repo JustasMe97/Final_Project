@@ -48,7 +48,7 @@
                         </li>
                         <div class="d-none d-lg-block vr bg-light mx-2"></div>
                         <li>
-                            <a class="nav-link text-light fs-6" href="/">Kontaktai</a>
+                            <a class="nav-link text-light fs-6" href="{{route('contacts')}}">Kontaktai</a>
                         </li>
                         <div class="d-none d-lg-block vr bg-light mx-2"></div>
                         <li>

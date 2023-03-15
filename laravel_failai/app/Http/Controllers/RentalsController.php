@@ -48,7 +48,7 @@ class RentalsController extends Controller
                 $this->manager->createImage($imagefile, $rental);
             }
         }
-        return redirect()->route('user.rentals', $rental);
+        return redirect()->route('public.rental.show', $rental);
     }
 
     public
@@ -59,7 +59,7 @@ class RentalsController extends Controller
                 $this->manager->createImage($imagefile, $rental);
             }
         }
-        return redirect()->route('user.rentals', $rental);
+        return redirect()->route('public.rental.show', $rental);
     }
 
     public function userRentals(Request $request) {

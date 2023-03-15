@@ -85,7 +85,7 @@
         </div>
         <div class="form-group">
             <label for="images"> Pasirinkite nuotrauką(-as)..</label>
-            <input type="file" id="images" name="images" multiple>
+            <input type="file" id="images" name="images[]" multiple>
         </div>
         <button type="submit" class="btn btn-primary">Pridėti</button>
     </form>

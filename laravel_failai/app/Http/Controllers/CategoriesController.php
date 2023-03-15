@@ -15,8 +15,9 @@ class CategoriesController extends Controller
     {
 
     }
-    public function show(Request $request) {
-        $category=$this->catManager->getCategoryById($request->category_id);
+    public function show(null|Category $category, Request $request) {
+
+        $category=$this->catManager->getCategoryById($category->id?:$request->category_id);
         $rentals=$this->manager->getRentalsByCategoryWithImages($category);
         return view('public.category', compact('category', 'rentals'));
     }

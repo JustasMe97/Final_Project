@@ -204,7 +204,7 @@
             </div>
             <div class="my-2 row">
                 <div class="col-12 col-md d-flex justify-content-center">
-                    <button type="submit" class="btn text-light fs-5 my-2" style="background-color: #3E5142;">Pateikti rezervacijos užklausą
+                    <button type="submit" class="btn text-light fs-5 my-2 greentodarkgreen" >Pateikti rezervacijos užklausą
                     </button>
                 </div>
             </div>

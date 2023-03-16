@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="text-center text-white" style="background-color: #7A918D;">
+<footer class="text-center text-white greentodarkgreen">
     <!-- Grid container -->
     <div class="container p-4">
         <div class="row my-4">
@@ -32,7 +32,6 @@
                 </div>
 
             </div>
-
             <div class="col-12 col-md-6">
 
                 <div class="row">
@@ -65,9 +64,10 @@
         <!-- Grid container -->
     </div>
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: #3E5142">
+    <hr class="hr hr-blurry"/>
+    <div class="text-center text-light pb-3">
         © 2023 Copyright:
-        <a class="text-white text-decoration-none" href="">Auto<span style="color: #48bb78">Rent</span></a>
+        <a class="text-light text-decoration-none" href="">Auto<span style="color: #48bb78">Rent</span></a>
     </div>
     <!-- Copyright -->
 </footer>

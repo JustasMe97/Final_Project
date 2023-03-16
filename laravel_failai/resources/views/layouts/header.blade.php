@@ -1,9 +1,10 @@
 <header>
-    <div class="d-flex align-items-center" style="background-color: #3E5142;">
+    <div class="d-flex align-items-center darkgreentogreen">
         <div class="container">
-            <div class="row d-flex justify-content-end text-light mt-2 fw-bold align-items-center"
-                 style="background-color: #3E5142;">
+            <div class="row d-flex justify-content-end text-light mt-2 fw-bold align-items-center">
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-end">
+                    <div class="me-2"><a href=""><img class="rounded-circle  border border-3 border-light" src="/img/UK-flag.png" alt="lt" style="height: 30px; width: 30px;"></a></div>
+                    <div class="me-5"><a href=""><img class="rounded-circle border border-3 border-light" src="/img/Flag_of_LT.png" alt="lt" style="height: 30px; width: 30px;"></a></div>
                     <img class="rounded" src="/img/email.svg" alt="gearbox" style="height: 30px; width: 30px;">
                     <div class="d-flex justify-content-start ms-2">info@autorent.lt</div>
                 </div>
@@ -12,7 +13,7 @@
                     <div class="d-flex justify-content-start ms-2">+37067777777</div>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3E5142;">
+            <nav class="navbar navbar-expand-lg navbar-dark">
                 {{--                <a class="navbar-brand" href="#">Meniu</a>--}}
                 <div class="d-flex flex-row align-items-center text-light">
                     <div>
@@ -33,7 +34,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse my-2" id="navbarSupportedContent">
                     <ul class="navbar-nav text-center ms-auto">
                         <li>
                             <a class="nav-link text-light fs-6" href="{{route('home')}}">Pradžia</a>

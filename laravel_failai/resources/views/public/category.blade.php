@@ -84,7 +84,7 @@
 
                         </div>
                         <div class="d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle">
-                            <a role="button" class="btn ms-1 me-1" style="background-color: #7A918D;"
+                            <a role="button" class="btn text-light ms-1 me-1 greentodarkgreen"
                                href="{{route('rental.show', $rental->id)}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-search" viewBox="0 0 16 16">

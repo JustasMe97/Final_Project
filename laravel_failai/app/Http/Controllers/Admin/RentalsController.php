@@ -39,6 +39,7 @@ class RentalsController extends Controller
     public function store(RentalRequest $request)
     {
         $rental = $this->rentalsManager->createRental($request);
+        //adding images for rental
         if ($request->file('images')) {
             foreach ($request->file('images') as $imagefile) {
                 $this->imgManager->createImage($imagefile, $rental);

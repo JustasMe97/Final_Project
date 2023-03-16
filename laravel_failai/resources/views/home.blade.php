@@ -108,27 +108,29 @@
     </section>
 
 
-    <section class="p-5">
-        <div class="container row rounded py-3 d-flex justify-content-center align-items-center">
-            <div class="col-12 col-lg-6 rounded text-center pt-3" style="background-color: #7A918D;">
+    <section class="px-5 py-3">
+        <div class="container row rounded py-3 ms-1 d-flex justify-content-center align-items-center">
+            <div class="col-12 rounded text-center pt-3" style="background-color: #7A918D;">
                 <span class="fw-bold fs-5 text-center">TURITE KLAUSIMŲ? SUSISIEKIME!</span>
                 <form action="" method="post" enctype="multipart/form-data">
-                    <div class="col-12 text-center">
-                        <div class="col my-3">
+                    <div class="col-12 row ms-1 text-center pt-3">
+                        <div class="col-12 col-lg-4 mb-3">
                             <label for="name" class="form-label">Vardas</label>
                             <input type="text" class="form-control" id="name">
                         </div>
-                        <div class="col mb-3">
+                        <div class="col-12 col-lg-4 mb-3">
                             <label for="email" class="form-label">El. paštas</label>
                             <input type="email" class="form-control" id="email">
                         </div>
-                        <div class="col mb-3">
+                        <div class="col-12 col-lg-4 mb-3">
                             <label for="phone" class="form-label">Telefonas</label>
                             <input type="text" class="form-control" id="phone">
                         </div>
+                    </div>
+                    <div class="col-12 text-center">
                         <div class="col mb-3">
                             <label for="message" class="form-label">Užduokite savo klausimą</label>
-                            <textarea class="w-100" rows="10" name="message" id="message" placeholder="Jūsų klausimas..."></textarea>
+                            <textarea class="w-100" rows="5" name="message" id="message" placeholder="Jūsų klausimas..."></textarea>
                         </div>
                         <div class="col my-1 d-flex justify-content-center">
                             <button type="submit" class="btn text-light d-flex justify-content-center my-2"
@@ -136,9 +138,53 @@
                             </button>
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="container pb-5 pt-3 rounded greentodarkgreentogreen" >
+            <div class="text-light fw-bold fs-3 mb-3 text-center">Nemokami priedai</div>
+            <div class="row text-center gy-2">
+                <div class="col-12 col-lg">
+                    <div class="card text-light my-2 my-lg-0 h-100" style="background-color: #7A918D">
+                        <div class="card-body text-center">
+                            <div>
+                            <img class="img-fluid my-3 rounded" src="/img/child-seat-icon.svg" alt="seat">
+                            </div>
+                                <div class="card-title mb-3 fs-4 fw-bold" style="color: #3E5142;">Vaikiška kėdutė</div>
+                            <p class="card-text">Nemokamai gaukite vaikišką kėdutę, kad mažieji keliautų saugiai.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg">
+                    <div class="card text-light my-2 my-lg-0 h-100" style="background-color: #7A918D">
+                        <div class="card-body text-center">
+                            <div>
+                            <img class="img-fluid my-3 rounded" src="/img/gps-location-icon.svg" alt="gps">
+                            </div>
+                            <div class="card-title mb-3 fs-4 fw-bold" style="color: #3E5142;">GPS navigacija</div>
+                            <p class="card-text">Kad kelionės eitųsi užtikrintai ir sklandžiai.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg">
+                    <div class="card text-light my-2 my-lg-0 h-100" style="background-color: #7A918D">
+                        <div class="card-body text-center">
+                            <div>
+                            <img class="img-fluid my-3 rounded" src="/img/two-persons-icon.svg" alt="two">
+                            </div>
+                                <div class="card-title mb-3 fs-4 fw-bold" style="color: #3E5142;">Antras vairuotojas</div>
+                            <p class="card-text">Galimybė automobilį vairuoti antram vairuotojui.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 @endsection
 

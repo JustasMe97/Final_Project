@@ -149,12 +149,13 @@
 
         <form action="{{route('reservation.store')}}" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="rental_id" class="form-control" value="{{$rental->id}}"/>
             <div class="my-2 row">
                 <div class="col-12 col-md-6">
                     <label for="startDate">Pradžios data:</label>
                 </div>
                 <div class="col col-md-6">
-                    <input id="startDate" name="startDate" class="form-control" type="date"/>
+                    <input id="startDate" name="start_date" class="form-control" type="date"/>
                 </div>
             </div>
             <div class="my-2 row">
@@ -162,7 +163,7 @@
                     <label for="endDate">Pabaigos data:</label>
                 </div>
                 <div class="col col-md-6">
-                    <input id="startDate" name="endDate" class="form-control" type="date"/>
+                    <input id="startDate" name="end_date" class="form-control" type="date"/>
                 </div>
             </div>
             <div class="my-2 row d-flex flex-column">
@@ -171,40 +172,77 @@
                 </div>
                 <div class="col-12 d-flex justify-content-start">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="true" name="childSeat" id="childseat">
+                        <input class="form-check-input" type="checkbox" value="taip" name="child_seat" id="childseat">
                         <label class="form-check-label" for="childseat">
-                            Vaikiška kėdutė <span class="rounded mx-1 px-1 align-middle" style="color: white; background-color: #5a6268">nemokama</span>
+                            Vaikiška kėdutė <span class="rounded mx-1 px-1 align-middle"
+                                                  style="color: white; background-color: #5a6268">nemokama</span>
                         </label>
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-start">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="true" name="secondDriver" id="seconddriver">
+                        <input class="form-check-input" type="checkbox" value="taip" name="second_driver"
+                               id="seconddriver">
                         <label class="form-check-label" for="seconddriver">
-                            Antro vairuotojo galimybė <span class="rounded mx-1 px-1 align-middle" style="color: white; background-color: #5a6268">nemokama</span>
+                            Antro vairuotojo galimybė <span class="rounded mx-1 px-1 align-middle"
+                                                            style="color: white; background-color: #5a6268">nemokama</span>
                         </label>
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-start">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="true" name="gps" id="gps">
+                        <input class="form-check-input" type="checkbox" value="taip" name="gps" id="gps">
                         <label class="form-check-label" for="gps">
-                            GPS navigacija <span class="rounded mx-1 px-1 align-middle" style="color: white; background-color: #5a6268">nemokama</span>
+                            GPS navigacija <span class="rounded mx-1 px-1 align-middle"
+                                                 style="color: white; background-color: #5a6268">nemokama</span>
                         </label>
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-start">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="true" name="wifi" id="wifi">
+                        <input class="form-check-input" type="checkbox" value="taip" name="wifi" id="wifi">
                         <label class="form-check-label" for="wifi">
-                            Neribotas Wi-Fi internetas <span class="rounded mx-1 px-1 align-middle" style="color: white; background-color: #5a6268">3€/dienai</span>
+                            Neribotas Wi-Fi internetas <span class="rounded mx-1 px-1 align-middle"
+                                                             style="color: white; background-color: #5a6268">3€/dienai</span>
                         </label>
                     </div>
                 </div>
             </div>
+
+            <div class="rounded mt-4 mb-2 row text_center text-light py-2 greentodarkgreentogreen">
+                @guest
+                    <div
+                        class="col-12 text-center fs-4 my-2">{{__('Nesate prisijungę, todėl užpildykite duomenis.')}}</div>
+                    <div class="col-4">
+                        <label for="name" class="form-label">Vardas</label>
+                        <input type="text" class="form-control" id="name" name="name_of_renter">
+                    </div>
+                    <div class="col-4">
+                        <label for="email" class="form-label">El. paštas</label>
+                        <input type="email" class="form-control" id="email" name="email_of_renter">
+                    </div>
+                    <div class="col-4">
+                        <label for="phone" class="form-label">Telefonas</label>
+                        <input type="text" class="form-control" id="phone" name="phone_of_renter">
+                    </div>
+                @endguest
+                @auth
+                    <input type="hidden" class="form-control" id="name" name="name_of_renter"
+                           value={{Auth::user()?->name}}>
+                    <input type="hidden" class="form-control" id="email" name="email_of_renter"
+                           value={{Auth::user()?->email}}>
+                @endauth
+                <div class="col-12 mt-2">
+                    <label for="message" class="form-label">Papildoma informacija susijusi su rezervacija</label>
+                    <textarea class="w-100" rows="5" name="message_of_renter" id="message"
+                              placeholder="Jūsų žinutė(neprivaloma)..."></textarea>
+                </div>
+            </div>
+
             <div class="my-2 row">
                 <div class="col-12 col-md d-flex justify-content-center">
-                    <button type="submit" class="btn text-light fs-5 my-2 greentodarkgreen" >Pateikti rezervacijos užklausą
+                    <button type="submit" class="btn text-light fs-5 my-2 greentodarkgreen">Pateikti rezervacijos
+                        užklausą
                     </button>
                 </div>
             </div>

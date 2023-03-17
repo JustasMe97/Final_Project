@@ -19,9 +19,9 @@ class SetLocale
     public function handle(Request $request, Closure $next): Response|RedirectResponse
     {
         // Nustatom fallback locale
-        app()->setFallbackLocale('en');
+        app()->setFallbackLocale('lt');
 
-        // Paimam is seseijos lokale, o jei nera, tai is config/app.php
+        // Paimam is sesijos lokale, o jei nera, tai is config/app.php
         $locale = $request->session()->get('lang', config('app.locale'));
 
         // Jei yra lang parametras, tai pakeiciam locale

@@ -4,8 +4,9 @@
 
 @section('content')
     <a href="{{route('fuelTypes.create')}}" class="btn blue darken-4 mr-1">Create new</a>
+    <div class="table-responsive">
     <table class="table my-4 table-bordered">
-        <thead class="thead-dark">
+        <thead class="greentodarkgreen  text-light text-center align-middle">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Pavadinimas</th>
@@ -42,15 +43,6 @@
                             Pašalinti
                         </button>
                     </form>
-                    <a role="button" class="btn btn-secondary ms-1 me-1"
-                       href="{{route('fuelTypes.show', $fuelType->id)}}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                             class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                        </svg>
-                        Peržiūra
-                    </a>
                 </div>
             </td>
             </th>
@@ -58,4 +50,5 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection

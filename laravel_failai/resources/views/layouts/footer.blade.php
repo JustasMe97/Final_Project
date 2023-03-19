@@ -1,31 +1,33 @@
-<!-- Footer -->
+
 <footer class="text-center text-white greentodarkgreen">
-    <!-- Grid container -->
+
     <div class="container p-4">
         <div class="row my-4">
             <div class="col-12 col-md-6">
                 <div class="row">
-                    <h4 class="text-light text-start mt-2 mb-4">Pagrindinis meniu</h4>
+                    <h4 class="text-light text-start mt-2 mb-4">{{__('Pagrindinis meniu')}}</h4>
                     <div class="col-12 col-md-6 text-start">
                         <div class="d-flex justify-content-start align-items-start flex-column">
                             <div>
-                                <a class="text-light text-decoration-none" href="{{route('home')}}">Pradžia</a>
+                                <a class="text-light text-decoration-none" href="{{route('home')}}">{{__('Pradžia')}}</a>
                             </div>
                             <div>
-                                <a class="text-light text-decoration-none" href="{{route('rental.index')}}">Nuomojami automobiliai</a>
+                                <a class="text-light text-decoration-none" href="{{route('rental.index')}}">{{__('Nuomojami
+                                    automobiliai')}}</a>
                             </div>
                             <div>
-                                <a class="text-light text-decoration-none" href="{{route('category.index')}}">Automobilių kategorijos</a>
+                                <a class="text-light text-decoration-none" href="{{route('category.index')}}">{{__('Automobilių
+                                    kategorijos')}}</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="d-flex justify-content-start align-items-start flex-column">
                             <div>
-                                <a class="text-light text-decoration-none" href="{{route('contacts')}}">Kontaktai</a>
+                                <a class="text-light text-decoration-none" href="{{route('contacts')}}">{{__('Kontaktai')}}</a>
                             </div>
                             <div>
-                                <a class="text-light text-decoration-none" href="">Apie mus</a>
+                                <a class="text-light text-decoration-none" href="">{{__('Apie mus')}}</a>
                             </div>
                         </div>
                     </div>
@@ -35,7 +37,7 @@
             <div class="col-12 col-md-6">
 
                 <div class="row">
-                    <h4 class="text-light text-start mt-2 mb-4">Kontaktinė informacija</h4>
+                    <h4 class="text-light text-start mt-2 mb-4">{{__('Kontaktinė informacija')}}</h4>
                     <div class="col-12 d-flex justify-content-start align-items-start flex-column">
                         <div>
                             <div>
@@ -61,14 +63,14 @@
 
             </div>
         </div>
-        <!-- Grid container -->
+
     </div>
-    <!-- Copyright -->
+
     <hr class="hr hr-blurry"/>
     <div class="text-center text-light pb-3">
         © 2023 Copyright:
-        <a class="text-light text-decoration-none" href="">Auto<span style="color: #48bb78">Rent</span></a>
+        <a class="text-light text-decoration-none">Auto<span style="color: #48bb78">Rent</span></a>
     </div>
-    <!-- Copyright -->
+
 </footer>
-<!-- Footer -->
+

@@ -8,13 +8,27 @@ use Illuminate\Http\Request;
 
 class ReservationsManager
 {
-//    public function getCategories(): Collection
-//    {
-//        $rentals = Category::query()->with(['parent'])->get();
-//
-//
-//        return $rentals;
-//    }
+    public function getReservations(): Collection
+    {
+        $reservations = Reservation::query()->with(['rental'])->get();
+
+
+        return $reservations;
+    }
+    public function getLatestReservations(): Collection
+    {
+        $reservations = Reservation::latest()->take(5)->with(['rental'])->get();
+
+
+        return $reservations;
+    }
+    public function getUserReservations(string $email): Collection
+    {
+        $reservations = Reservation::where('email_of_renter', $email)->with(['rental'])->get();
+
+
+        return $reservations;
+    }
 
 //    public function getCategoryById($category_id): Category
 //    {
@@ -40,4 +54,5 @@ class ReservationsManager
 //    {
 //        $category->delete();
 //    }
+
 }

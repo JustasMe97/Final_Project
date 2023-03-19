@@ -35,6 +35,17 @@
     background-image: linear-gradient(
         #ebebeb, #c0c9bf
     );
-
-
+}
+.green {
+    background-color: #7A918D;
+}
+.lightgreen{
+    color: #48bb78;
+}
+.darkgreen{
+    background-color: #3E5142;
+}
+.lightgreenbackground
+{
+    background-color: #48bb78;
 }

@@ -4,13 +4,14 @@
 
 @section('content')
     <a href="{{route('rentals.create')}}" class="btn blue darken-4 mr-1">Create new</a>
+    <div class="table-responsive">
     <table class="table my-4 table-bordered">
-        <thead class="thead-dark">
+        <thead class="greentodarkgreen  text-light text-center align-middle">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Pavadinimas</th>
-            <th scope="col">Modelis</th>
             <th scope="col">Markė</th>
+            <th scope="col">Modelis</th>
             <th scope="col">Kuro tipas</th>
             <th scope="col">Kategorija</th>
             <th scope="col">Pavarų dėžė</th>
@@ -55,7 +56,7 @@
                         </button>
                     </form>
                     <a role="button" class="btn btn-secondary ms-1 me-1"
-                       href="{{route('rentals.show', $rental->id)}}">
+                       href="{{route('rental.show', $rental->id)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-search" viewBox="0 0 16 16">
                             <path
@@ -70,4 +71,5 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection

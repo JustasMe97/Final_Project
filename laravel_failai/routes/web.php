@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AddressesController;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FuelTypesController;
 use App\Http\Controllers\Admin\GearboxesController;
 use App\Http\Controllers\Admin\RentalsController;
@@ -25,13 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified', isAdmin::class])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified', isAdmin::class])->name('dashboard');
 
 Route::group(['middleware' => SetLocale::class], function () {
 
@@ -48,17 +43,15 @@ Route::group(['middleware' => SetLocale::class], function () {
 
     Route::group( ['middleware' => ['auth', 'verified']], function () {
         Route::post('/userrentals', [\App\Http\Controllers\RentalsController::class, 'userRentals'])->name('user.rentals');
-//        Route::get('/userrentals', [\App\Http\Controllers\RentalsController::class, 'userRentals'])->name('user.rentals');
         Route::post('/userrentalsstore', [\App\Http\Controllers\RentalsController::class, 'userRentalsStore'])->name('user.rentals.store');
         Route::get('/userrentalscreate', [\App\Http\Controllers\RentalsController::class, 'userRentalsCreate'])->name('user.rentals.create');
         Route::get('/userrentals/{rental}/edit', [\App\Http\Controllers\RentalsController::class, 'userRentalsEdit'])->name('user.rentals.edit');
         Route::put('/userrentalsupdate/{rental}', [\App\Http\Controllers\RentalsController::class, 'userRentalsUpdate'])->name('user.rentals.update');
+        Route::post('/userrezervations', [\App\Http\Controllers\ReservationController::class, 'index'])->name('user.reservations');
 
     });
 
     Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified', isAdmin::class]], function () {
-//        Route::get('/', DashBoardController::class)->name('dashboard');
-//        Route::delete('/product/file/{file}', [ProductsController::class, 'destroyFile'])->name('product.destroy-file');
         Route::resources([
             'rentals' => RentalsController::class,
             'categories' => CategoriesController::class,

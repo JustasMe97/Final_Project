@@ -2,10 +2,14 @@
     <div class="d-flex align-items-center darkgreentogreen">
         <div class="container">
             <div class="row d-flex justify-content-end text-light mt-2 fw-bold align-items-center">
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-end">
-                    <div class="me-2"><a href="{{ url()->current() }}?lang=en"><img class="rounded-circle  border border-3 border-light" src="/img/UK-flag.png" alt="lt" style="height: 30px; width: 30px;"></a></div>
-                    <div class="me-5"><a href="{{ url()->current() }}?lang=lt"><img class="rounded-circle border border-3 border-light" src="/img/Flag_of_LT.png" alt="lt" style="height: 30px; width: 30px;"></a></div>
-                    <img class="rounded" src="/img/email.svg" alt="gearbox" style="height: 30px; width: 30px;">
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-end">
+                    <div class="me-2"><a href="{{ url()->current() }}?lang=en"><img
+                                class="rounded-circle  border border-3 border-light" src="/img/UK-flag.png" alt="lt"
+                                style="height: 30px; width: 30px;"></a></div>
+                    <div class="me-5"><a href="{{ url()->current() }}?lang=lt"><img
+                                class="rounded-circle border border-3 border-light" src="/img/Flag_of_LT.png" alt="lt"
+                                style="height: 30px; width: 30px;"></a></div>
+                    <img class="rounded" src="/img/email.svg" alt="email" style="height: 30px; width: 30px;">
                     <div class="d-flex justify-content-start ms-2">info@autorent.lt</div>
                 </div>
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-end">
@@ -30,7 +34,7 @@
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent">
-{{--                    <p class="navbar-text visible-xs-inline-block">Menu</p>--}}
+                    {{--                    <p class="navbar-text visible-xs-inline-block">Menu</p>--}}
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -41,11 +45,13 @@
                         </li>
                         <div class="d-none d-lg-block vr bg-light mx-2"></div>
                         <li>
-                            <a class="nav-link text-light fs-6" href="{{route('rental.index')}}">{{__('Automobiliai')}}</a>
+                            <a class="nav-link text-light fs-6"
+                               href="{{route('rental.index')}}">{{__('Automobiliai')}}</a>
                         </li>
                         <div class="d-none d-lg-block vr bg-light mx-2"></div>
                         <li>
-                            <a class="nav-link text-light fs-6" href="{{route('category.index')}}">{{__('Kategorijos')}}</a>
+                            <a class="nav-link text-light fs-6"
+                               href="{{route('category.index')}}">{{__('Kategorijos')}}</a>
                         </li>
                         <div class="d-none d-lg-block vr bg-light mx-2"></div>
                         <li>
@@ -61,13 +67,20 @@
                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{__('Admin valdymas')}}
                                 </a>
-                                <div class="dropdown-menu text-center" style="background-color: #7A918D;" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item " href="{{route('rentals.index')}}">{{__('Automobiliai')}}</a>
-                                    <a class="dropdown-item " href="{{route('categories.index')}}">{{__('Kategorijos')}}</a>
-                                    <a class="dropdown-item " href="{{route('fuelTypes.index')}}">{{__('Kuro tipai')}}</a>
-                                    <a class="dropdown-item " href="{{route('gearboxes.index')}}">{{__('Pavarų dėžės')}}</a>
+                                <div class="dropdown-menu text-center green"
+                                     aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item "
+                                       href="{{route('rentals.index')}}">{{__('Automobiliai')}}</a>
+                                    <a class="dropdown-item "
+                                       href="{{route('categories.index')}}">{{__('Kategorijos')}}</a>
+                                    <a class="dropdown-item "
+                                       href="{{route('fuelTypes.index')}}">{{__('Kuro tipai')}}</a>
+                                    <a class="dropdown-item "
+                                       href="{{route('gearboxes.index')}}">{{__('Pavarų dėžės')}}</a>
                                     <a class="dropdown-item " href="{{route('addresses.index')}}">{{__('Adresai')}}</a>
                                     <a class="dropdown-item " href="{{route('users.index')}}">{{__('Vartotojai')}}</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item " href="{{route('dashboard')}}">{{__('Admin skydelis')}}</a>
                                 </div>
                             </li>
                         @endauth
@@ -78,16 +91,28 @@
                                     {{Auth::user()?->email}}
                                 </a>
 
-                                <div class="dropdown-menu text-center" style="background-color: #7A918D;" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{route('profile.edit')}}">{{__('Redaguoti profilį')}}</a>
+                                <div class="dropdown-menu text-center green"
+                                     aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="{{route('profile.edit')}}">{{__('Redaguoti profilį')}}</a>
                                     <div class="dropdown-divider"></div>
 
                                     <form action="{{route('user.rentals')}}" method="post">
                                         <input type="hidden" class="form-control"
                                                name="user"
                                                value="{{Auth::user()?->id}}">
-                                        <button type="submit" class="btn ms-2 me-2" style="background-color: #48bb78">
+                                        <button type="submit" class="btn ms-2 me-2 lightgreenbackground">
                                             {{__('Mano automobiliai')}}
+                                        </button>
+                                        @csrf
+                                    </form>
+                                    <div class="dropdown-divider"></div>
+                                    <form action="{{route('user.reservations')}}" method="post">
+                                        <input type="hidden" class="form-control"
+                                               name="email"
+                                               value="{{Auth::user()?->email}}">
+                                        <button type="submit" class="btn ms-2 me-2 lightgreenbackground">
+                                            {{__('Mano rezervacijos')}}
                                         </button>
                                         @csrf
                                     </form>
@@ -103,10 +128,12 @@
                         @endauth
                         @guest
                             <li class="nav-item active">
-                                <a role="button" style="background-color: #48bb78; color: #f8f9fa;" class="btn ms-1 me-1" href="{{route('login')}}">{{__('Prisijungti')}}</a>
+                                <a role="button" style="color: #f8f9fa;"
+                                   class="btn ms-1 me-1 lightgreenbackground" href="{{route('login')}}">{{__('Prisijungti')}}</a>
                             </li>
                             <li class="nav-item active">
-                                <a role="button" style="background-color: #48bb78; color: #f8f9fa;" class="btn ms-1 me-1" href="{{route('register')}}">{{__('Registracija')}}</a>
+                                <a role="button" style="color: #f8f9fa;"
+                                   class="btn ms-1 me-1 lightgreenbackground" href="{{route('register')}}">{{__('Registracija')}}</a>
                             </li>
                         @endguest
                     </ul>

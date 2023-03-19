@@ -3,9 +3,13 @@
 @section('title', 'Nuomojami Automobiliai')
 
 @section('content')
+    <div class="text-dark my-5 d-flex justify-content-start"><h1 class="fw-bold" style="color: #7A918D;">
+            {{__('Mano nuomojami automobiliai')}}</h1></div>
     <a href="{{route('user.rentals.create')}}" class="btn blue darken-4 mr-1">Create new</a>
+    <div class="table-responsive">
     <table class="table my-4 table-bordered">
-        <thead class="thead-dark">
+
+        <thead class="greentodarkgreen  text-light text-center align-middle">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Pavadinimas</th>
@@ -55,7 +59,7 @@
                         </button>
                     </form>
                     <a role="button" class="btn btn-secondary ms-1 me-1"
-                       href="{{route('rentals.show', $rental->id)}}">
+                       href="{{route('rental.show', $rental->id)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-search" viewBox="0 0 16 16">
                             <path
@@ -70,4 +74,5 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection

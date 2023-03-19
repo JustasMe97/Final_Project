@@ -4,8 +4,9 @@
 
 @section('content')
     <a href="{{route('categories.create')}}" class="btn blue darken-4 me-1">Create new</a>
+    <div class="table-responsive">
     <table class="table my-4 table-bordered">
-        <thead class="thead-dark">
+        <thead class="greentodarkgreen  text-light text-center align-middle">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Pavadinimas</th>
@@ -47,7 +48,7 @@
                         </button>
                     </form>
                     <a role="button" class="btn btn-secondary ms-1 me-1"
-                       href="{{route('categories.show', $category->id)}}">
+                       href="{{route('category.showById', $category->id)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-search" viewBox="0 0 16 16">
                             <path
@@ -62,4 +63,5 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection

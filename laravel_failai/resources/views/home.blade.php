@@ -112,19 +112,20 @@
         <div class="container row rounded py-3 ms-1 d-flex justify-content-center align-items-center">
             <div class="col-12 rounded text-center pt-3" style="background-color: #7A918D;">
                 <span class="fw-bold fs-5 text-center">TURITE KLAUSIMŲ? SUSISIEKIME!</span>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{route('question.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="col-12 row ms-1 text-center pt-3">
                         <div class="col-12 col-lg-4 mb-3">
                             <label for="name" class="form-label">Vardas</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" name="name" id="name">
                         </div>
                         <div class="col-12 col-lg-4 mb-3">
                             <label for="email" class="form-label">El. paštas</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control" name="email" id="email">
                         </div>
                         <div class="col-12 col-lg-4 mb-3">
                             <label for="phone" class="form-label">Telefonas</label>
-                            <input type="text" class="form-control" id="phone">
+                            <input type="text" class="form-control" name="phone" id="phone">
                         </div>
                     </div>
                     <div class="col-12 text-center">

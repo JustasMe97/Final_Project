@@ -25,18 +25,19 @@
         <div class="rounded text-dark bg-light col-12 col-md-6 col-lg-4 d-flex flex-column">
             <span class="fw-bold text-center">TURITE KLAUSIMŲ? SUSISIEKIME!</span>
             <div>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{route('question.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Vardas</label>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" class="form-control" name="name" id="name">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">El. paštas</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" name="email" id="email">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Telefonas</label>
-                        <input type="text" class="form-control" id="phone">
+                        <input type="text" class="form-control" name="phone" id="phone">
                     </div>
                     <div class="mb-3">
                         <textarea class="w-100" name="message" placeholder="Jūsų žinutė..."></textarea>

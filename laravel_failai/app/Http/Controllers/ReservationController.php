@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReservationRequest;
 use App\Managers\ReservationsManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -15,7 +16,7 @@ class ReservationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(ReservationRequest $request)
     {
         $reservations=$this->manager->getUserReservations($request->email);
         return view('user.reservations.index', compact('reservations'));
@@ -32,7 +33,7 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ReservationRequest $request)
     {
         $this->manager->CreateReservation($request);
         return Redirect::back();

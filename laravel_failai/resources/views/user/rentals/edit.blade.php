@@ -103,13 +103,13 @@
             <label for="images"> Pasirinkite nuotrauką(-as)..</label>
             <input type="file" id="images" name="images[]" multiple>
         </div>
-        <button type="submit" class="btn btn-primary">{{__('Atnaujinti')}}</button>
+        <button type="submit" class="btn text-light greentodarkgreen">{{__('Atnaujinti')}}</button>
     </form>
 
         <div class="row my-5">
 
             @foreach($images as $image)
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4 my-2">
                     <div class="card bg-light text-dark h-100">
                         <div class="m-2"><img class="img-fluid rounded" src="/img/{{$image->path}}" alt="rental"></div>
                         <div class="card-body pb-1">

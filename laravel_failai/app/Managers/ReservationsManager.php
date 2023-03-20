@@ -2,6 +2,7 @@
 
 namespace App\Managers;
 
+use App\Http\Requests\ReservationRequest;
 use App\Models\Reservation;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class ReservationsManager
         return $reservations;
     }
 
-    public function createReservation(Request $request): Reservation
+    public function createReservation(ReservationRequest $request): Reservation
     {
         $reservation = Reservation::create($request->all());
 

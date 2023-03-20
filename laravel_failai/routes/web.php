@@ -11,6 +11,8 @@ use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
@@ -30,24 +32,23 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 
 Route::group(['middleware' => SetLocale::class], function () {
 
-    Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
-//    Route::get('/image', [ImageController::class,'index'])->middleware(['auth', 'verified'])->name('image.index');
-//    Route::post('/image', [ImageController::class,'store'])->middleware(['auth', 'verified'])->name('image.store');
+    Route::get('/contacts', ContactsController::class)->name('contacts');
     Route::get('/', HomeController::class)->name('home');
     Route::get('/rental/{rental}', [\App\Http\Controllers\RentalsController::class, 'show'])->name('rental.show');
     Route::get('/rentals', [\App\Http\Controllers\RentalsController::class, 'index'])->name('rental.index');
     Route::get('/categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('category.index');
     Route::post('/category', [\App\Http\Controllers\CategoriesController::class, 'show'])->name('category.show');
     Route::get('/category/{category:id}', [\App\Http\Controllers\CategoriesController::class, 'show'])->name('category.showById');
-    Route::post('/storereservation', [\App\Http\Controllers\ReservationController::class, 'store'])->name('reservation.store');
+    Route::post('/storereservation', [ReservationController::class, 'store'])->name('reservation.store');
+    Route::post('/question', [QuestionsController::class, 'store'])->name('question.store');
 
     Route::group( ['middleware' => ['auth', 'verified']], function () {
         Route::post('/userrentals', [\App\Http\Controllers\RentalsController::class, 'userRentals'])->name('user.rentals');
         Route::post('/userrentalsstore', [\App\Http\Controllers\RentalsController::class, 'userRentalsStore'])->name('user.rentals.store');
         Route::get('/userrentalscreate', [\App\Http\Controllers\RentalsController::class, 'userRentalsCreate'])->name('user.rentals.create');
-        Route::get('/userrentals/{rental}/edit', [\App\Http\Controllers\RentalsController::class, 'userRentalsEdit'])->name('user.rentals.edit');
+        Route::post('/userrentals/{rental}/edit', [\App\Http\Controllers\RentalsController::class, 'userRentalsEdit'])->name('user.rentals.edit');
         Route::put('/userrentalsupdate/{rental}', [\App\Http\Controllers\RentalsController::class, 'userRentalsUpdate'])->name('user.rentals.update');
-        Route::post('/userrezervations', [\App\Http\Controllers\ReservationController::class, 'index'])->name('user.reservations');
+        Route::post('/userrezervations', [ReservationController::class, 'index'])->name('user.reservations');
         Route::delete('/deleteimage/{image:id}', [ImageController::class, 'destroy'])->name('image.delete');
         Route::delete('/deleterental/{rental}', [\App\Http\Controllers\RentalsController::class, 'destroy'])->name('rental.delete');
 
@@ -62,6 +63,7 @@ Route::group(['middleware' => SetLocale::class], function () {
             'addresses'=> AddressesController::class,
             'users'=> UsersController::class,
         ]);
+        Route::delete('/question/{question}', [QuestionsController::class, 'destroy'])->name('question.destroy');
     });
 });
 

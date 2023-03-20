@@ -35,4 +35,12 @@ class ImagesManager
         $images= Image::where('rental_id', $rental->id)->get();
         return $images;
     }
+    public function destroy($id)
+    {
+        $image = Image::findOrFail($id);
+        $image_path = public_path().'/img/'.$image->path;
+        if(file_exists($image_path)) // check if the image indeed exists
+            unlink($image_path);
+        $image->delete();
+    }
 }

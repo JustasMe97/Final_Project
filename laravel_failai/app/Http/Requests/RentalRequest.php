@@ -27,12 +27,16 @@ class RentalRequest extends FormRequest
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'brand' => ['required', 'string', 'min:1', 'max:255'],
             'model' => ['required', 'string', 'min:1', 'max:255'],
+            'power' => ['nullable', 'string', 'min:1', 'max:3'],
             'fuel_type_id' => ['required', 'integer', 'exists:fuel_types,id'],
             'category_id' => ['required', 'integer', 'exists:categories,id'],
             'gearbox_id' => ['required', 'integer', 'exists:gearboxes,id'],
             'user_id' => ['nullable', 'integer', 'exists:users,id'],
             'price' => ['required', 'integer', 'min:0'],
+            'year' => ['nullable', 'string', 'min:4' ,'max:4'],
             'additional_info' => ['nullable', 'string', 'min:3'],
+            'images' => 'nullable',
+            'images.*' => 'mimes:jpg,png,jpeg,gif,svg,webp'
         ];
     }
 

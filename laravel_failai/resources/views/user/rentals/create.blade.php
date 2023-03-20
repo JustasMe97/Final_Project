@@ -46,30 +46,36 @@
         </div>
         <div class="form-group">
             <label for="fuel_type_id">Kuro tipas</label>
-            <input type="text"
-                   class="form-control @error('name') is-invalid @enderror"
-                   name="fuel_type_id"
-                   id="fuel_type_id"
-                   placeholder="Kuro tipo ID.."
-                   value="{{old('fuel_type_id')}}">
+            <select class="form-select" name="fuel_type_id" id="fuel_type_id">
+                <option selected style="background-color: #7A918D;">Pasirinkite kuro tipą:
+                </option>
+                @foreach($fuelTypes as $fuelType)
+                    <option class="green"
+                        value="{{$fuelType->id}}">{{$fuelType->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="category_id">Kategorija</label>
-            <input type="text"
-                   class="form-control @error('category_id') is-invalid @enderror"
-                   name="category_id"
-                   id="category_id"
-                   placeholder="Kategorijos ID.."
-                   value="{{old('category_id')}}">
+            <select class="form-select" name="category_id" id="category_id">
+                <option selected style="background-color: #7A918D;">Pasirinkite automobilio kategoriją:
+                </option>
+                @foreach($categories as $category)
+                    <option class="green"
+                            value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="gearbox_id">Pavarų dežės tipas</label>
-            <input type="text"
-                   class="form-control @error('gearbox_id') is-invalid @enderror"
-                   name="gearbox_id"
-                   id="gearbox_id"
-                   placeholder="Pavarų dėžės ID.."
-                   value="{{old('gearbox_id')}}">
+            <select class="form-select" name="gearbox_id" id="gearbox_id">
+                <option selected style="background-color: #7A918D;">Pasirinkite pavarų dėžės tipą:
+                </option>
+                @foreach($gearboxes as $gearbox)
+                    <option class="green"
+                        value="{{$gearbox->id}}">{{$gearbox->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <input type="hidden"
@@ -92,7 +98,7 @@
             <input type="text"
                    class="form-control @error('year') is-invalid @enderror"
                    name="year"
-                   name="year"
+                   id="year"
                    placeholder="Pagaminimo metai.."
                    value="{{old('year')}}">
         </div>

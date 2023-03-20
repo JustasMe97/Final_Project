@@ -44,7 +44,7 @@
                         </svg>
                         Redaguoti
                     </a>
-                    <form action="{{route('rentals.destroy', $rental->id)}}" method="post">
+                    <form action="{{route('rental.delete', $rental)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger ms-1 me-1">

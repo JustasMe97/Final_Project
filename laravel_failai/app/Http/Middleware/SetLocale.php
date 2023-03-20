@@ -18,19 +18,19 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response|RedirectResponse
     {
-        // Nustatom fallback locale
+        // Nustatoma fallback lokalė
         app()->setFallbackLocale('lt');
 
-        // Paimam is sesijos lokale, o jei nera, tai is config/app.php
+        //Paimama sesijos lokalė, o jei jos nėra, paimama iš config/app.php
         $locale = $request->session()->get('lang', config('app.locale'));
 
-        // Jei yra lang parametras, tai pakeiciam locale
+        // Jei yra lang parametras, tai pakeičiama lokalė
         if ($request->has('lang')) {
             $locale = $request->get('lang');
             $request->session()->put('lang', $locale);
         }
 
-        // Nustatom locale
+        // Nustatoma lokalė
         app()->setLocale($locale);
 
         return $next($request);

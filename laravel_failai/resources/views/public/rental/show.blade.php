@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div id="carouselExampleIndicators" class="carousel slide my-2 row" data-bs-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide my-2 row " data-bs-ride="carousel" data-bs-interval="2200">
             <div class="carousel-inner">
 
                 @foreach($images as $image)

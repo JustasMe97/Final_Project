@@ -31,8 +31,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::group(['middleware' => SetLocale::class], function () {
 
     Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
-    Route::get('/image', [ImageController::class,'index'])->middleware(['auth', 'verified'])->name('image.index');
-    Route::post('/image', [ImageController::class,'store'])->middleware(['auth', 'verified'])->name('image.store');
+//    Route::get('/image', [ImageController::class,'index'])->middleware(['auth', 'verified'])->name('image.index');
+//    Route::post('/image', [ImageController::class,'store'])->middleware(['auth', 'verified'])->name('image.store');
     Route::get('/', HomeController::class)->name('home');
     Route::get('/rental/{rental}', [\App\Http\Controllers\RentalsController::class, 'show'])->name('rental.show');
     Route::get('/rentals', [\App\Http\Controllers\RentalsController::class, 'index'])->name('rental.index');
@@ -48,6 +48,8 @@ Route::group(['middleware' => SetLocale::class], function () {
         Route::get('/userrentals/{rental}/edit', [\App\Http\Controllers\RentalsController::class, 'userRentalsEdit'])->name('user.rentals.edit');
         Route::put('/userrentalsupdate/{rental}', [\App\Http\Controllers\RentalsController::class, 'userRentalsUpdate'])->name('user.rentals.update');
         Route::post('/userrezervations', [\App\Http\Controllers\ReservationController::class, 'index'])->name('user.reservations');
+        Route::delete('/deleteimage/{image:id}', [ImageController::class, 'destroy'])->name('image.delete');
+        Route::delete('/deleterental/{rental}', [\App\Http\Controllers\RentalsController::class, 'destroy'])->name('rental.delete');
 
     });
 

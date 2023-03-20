@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Managers\CategoriesManager;
+use App\Managers\QuestionsManager;
 use App\Managers\ReservationsManager;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function __construct(protected ReservationsManager $resManager)
+    public function __construct(protected ReservationsManager $resManager, protected QuestionsManager $questionManager)
     {
     }
 
@@ -22,7 +23,8 @@ class DashboardController extends Controller
     public function index()
     {
         $reservations = $this->resManager->getLatestReservations();
-        return view('dashboard', compact('reservations'));
+        $questions = $this->questionManager->getLatestQuestions();
+        return view('dashboard', compact('reservations', 'questions'));
     }
 
     /**

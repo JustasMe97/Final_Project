@@ -155,7 +155,7 @@
                     <label for="startDate">Pradžios data:</label>
                 </div>
                 <div class="col col-md-6">
-                    <input id="startDate" name="start_date" class="form-control" type="date"/>
+                    <input id="startDate" name="start_date" class="form-control" type="date" min="{{date("Y-m-d")}}"/>
                 </div>
             </div>
             <div class="my-2 row">
@@ -163,7 +163,7 @@
                     <label for="endDate">Pabaigos data:</label>
                 </div>
                 <div class="col col-md-6">
-                    <input id="startDate" name="end_date" class="form-control" type="date"/>
+                    <input id="startDate" name="end_date" class="form-control" type="date" min="{{date("Y-m-d")}}"/>
                 </div>
             </div>
             <div class="my-2 row d-flex flex-column">

@@ -54,5 +54,6 @@ class QuestionsController extends Controller
     public function destroy(Question $question)
     {
         $this->manager->destroy($question);
+        return redirect()->back();
     }
 }

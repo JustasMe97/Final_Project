@@ -25,7 +25,7 @@ class ReservationRequest extends FormRequest
         return [
             'rental_id' => ['required', 'integer', 'exists:rentals,id'],
             'start_date' => ['required', 'date'],
-            'end_date' => ['required', 'date'],
+            'end_date' => ['required', 'date', 'after_or_equal:start_date'],
             'name_of_renter' => ['required', 'string', 'min:3', 'max:50'],
             'email_of_renter' => ['required', 'email', 'min:3', 'max:50'],
             'phone_of_renter' => ['nullable', 'string', 'min:3', 'max:15'],
@@ -47,7 +47,8 @@ class ReservationRequest extends FormRequest
             'max' => 'Max :attribute length :max symbols',
             'integer' => ':attribute has to be integer',
             'exists' => ':attribute has to match any of :exists',
-            'email' => ':attribute is not valid',
+            'email' => ':attribute neteisingas',
+            'after_or_equal' => 'pabaigos data negali būti ankstesnė už pradžios datą'
             // ....
         ];
     }

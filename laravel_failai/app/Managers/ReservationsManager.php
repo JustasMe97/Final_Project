@@ -39,4 +39,9 @@ class ReservationsManager
 
         return $reservation;
     }
+
+    public function deleteReservation(Reservation $reservation)
+    {
+        $reservation->delete();
+    }
 }

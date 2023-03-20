@@ -64,6 +64,8 @@ Route::group(['middleware' => SetLocale::class], function () {
             'users'=> UsersController::class,
         ]);
         Route::delete('/question/{question}', [QuestionsController::class, 'destroy'])->name('question.destroy');
+        Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy'])->name('reservation.destroy');
+
     });
 });
 

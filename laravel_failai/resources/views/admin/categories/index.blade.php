@@ -24,7 +24,7 @@
             <th scope="row">{{$category->description}}</th>
             <th>
                 <div class="d-flex flex-row">
-                    <a role="button" class="btn btn-dark ms-1 me-1"
+                    <a role="button" class="btn text-light greentodarkgreentogreen ms-1 me-1"
                        href="{{route('categories.edit', $category->id)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">

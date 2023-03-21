@@ -65,7 +65,8 @@ Route::group(['middleware' => SetLocale::class], function () {
         ]);
         Route::delete('/question/{question}', [QuestionsController::class, 'destroy'])->name('question.destroy');
         Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy'])->name('reservation.destroy');
-
+        Route::get('/reservation/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservation.edit');
+        Route::put('/reservation/{reservation:id}', [ReservationController::class, 'update'])->name('reservation.update');
     });
 });
 

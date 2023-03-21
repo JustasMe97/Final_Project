@@ -115,7 +115,7 @@
             <label for="images"> Pasirinkite nuotrauką(-as)..</label>
             <input type="file" id="images" name="images[]" multiple>
         </div>
-        <button type="submit" class="btn btn-primary">Pridėti</button>
+        <button type="submit" class="btn text-light greentodarkgreentogreen">Pridėti</button>
     </form>
     </div>
 @endsection

@@ -3,7 +3,7 @@
 @section('title', 'Adresai')
 
 @section('content')
-    <a href="{{route('addresses.create')}}" class="btn blue darken-4 mr-1">Create new</a>
+    <a href="{{route('addresses.create')}}" class="btn text-light greentodarkgreentogreen">{{__('Pridėti naują')}}</a>
     <div class="table-responsive">
     <table class="table my-4 table-bordered">
         <thead class="greentodarkgreen  text-light text-center align-middle">

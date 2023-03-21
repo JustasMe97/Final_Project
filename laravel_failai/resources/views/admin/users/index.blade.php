@@ -3,7 +3,7 @@
 @section('title', 'Vartotojai')
 
 @section('content')
-    <a href="{{route('users.create')}}" class="btn blue darken-4 mr-1">Create new</a>
+    <a href="{{route('users.create')}}" class="btn btext-light greentodarkgreentogreen">{{__('Pridėti naują')}}</a>
     <div class="table-responsive">
     <table class="table my-4 table-bordered">
         <thead class="greentodarkgreen  text-light text-center align-middle">

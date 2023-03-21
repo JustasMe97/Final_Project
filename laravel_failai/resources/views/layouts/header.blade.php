@@ -129,11 +129,11 @@
                         @guest
                             <li class="nav-item active">
                                 <a role="button" style="color: #f8f9fa;"
-                                   class="btn ms-1 me-1 lightgreenbackground" href="{{route('login')}}">{{__('Prisijungti')}}</a>
+                                   class="btn ms-1 me-1 my-1 lightgreenbackground" href="{{route('login')}}">{{__('Prisijungti')}}</a>
                             </li>
                             <li class="nav-item active">
                                 <a role="button" style="color: #f8f9fa;"
-                                   class="btn ms-1 me-1 lightgreenbackground" href="{{route('register')}}">{{__('Registracija')}}</a>
+                                   class="btn ms-1 me-1 my-1 lightgreenbackground" href="{{route('register')}}">{{__('Registracija')}}</a>
                             </li>
                         @endguest
                     </ul>

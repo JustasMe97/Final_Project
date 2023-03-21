@@ -23,7 +23,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-10 my-2 d-flex justify-content-center">
-                        <select class="form-select" name="category_id">
+                        <select class="form-select form-control" name="category_id">
                             <option selected style="background-color: #7A918D;">Pasirinkite automobilio kategoriją:
                             </option>
                             @foreach($categories as $category)

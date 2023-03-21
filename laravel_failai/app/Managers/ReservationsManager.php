@@ -44,4 +44,11 @@ class ReservationsManager
     {
         $reservation->delete();
     }
+
+    public function UpdateReservation(ReservationRequest $request, Reservation $reservation)
+    {
+        $reservation->update($request->all());
+
+        return $reservation;
+    }
 }

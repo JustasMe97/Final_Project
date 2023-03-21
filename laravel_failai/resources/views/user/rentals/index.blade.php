@@ -5,7 +5,7 @@
 @section('content')
     <div class="text-dark my-5 d-flex justify-content-start"><h1 class="fw-bold" style="color: #7A918D;">
             {{__('Mano nuomojami automobiliai')}}</h1></div>
-    <a href="{{route('user.rentals.create')}}" class="btn blue darken-4 mr-1">Create new</a>
+    <a href="{{route('user.rentals.create')}}" class="btn text-light greentodarkgreentogreen mr-1">{{__('Pridėti naują')}}</a>
     <div class="table-responsive">
     <table class="table my-4 table-bordered">
 

@@ -17,7 +17,7 @@ class ReservationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(ReservationRequest $request)
+    public function index(Request $request)
     {
         $reservations=$this->manager->getUserReservations($request->email);
         return view('user.reservations.index', compact('reservations'));
@@ -51,17 +51,18 @@ class ReservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Reservation $reservation)
     {
-        //
+        return view('user.reservations.edit', compact('reservation'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ReservationRequest $request, Reservation $reservation)
     {
-        //
+        $this->manager->UpdateReservation($request, $reservation);
+        return Redirect::route('dashboard');
     }
 
     /**

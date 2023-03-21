@@ -77,6 +77,6 @@ class RentalsController extends Controller
     public function destroy(Rental $rental)
     {
         $this->rentalsManager->deleteRental($rental);
-     return route('home');
+     return redirect()->route('home');
     }
 }

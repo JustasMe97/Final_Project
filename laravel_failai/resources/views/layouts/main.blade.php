@@ -8,7 +8,6 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/svg+xml" href="{{asset('favicon.svg')}}">
     <!-- Compiled and minified CSS and JS -->
 
     <link href="{{ URL::asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">

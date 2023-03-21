@@ -1,15 +1,19 @@
+/* transtiton time for card */
 .card {
     transition: all 0.3s;
 }
 
+/* card expands when hovering above */
 .card:hover {
     transform: scale(1.07);
 }
 
+/* hover background color */
 .option:hover {
     background-color: #1b1e21;
 }
 
+/* grandient colors classes */
 .greentodarkgreen {
     background-color: #7A918D;
     background-image: linear-gradient(

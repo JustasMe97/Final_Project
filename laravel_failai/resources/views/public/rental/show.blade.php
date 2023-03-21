@@ -1,51 +1,5 @@
 @extends('layouts.main')
 @section('content')
-    {{--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">--}}
-    {{--    <ol class="carousel-indicators">--}}
-    {{--        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
-    {{--        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
-    {{--        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
-    {{--    </ol>--}}
-    {{--    <div class="carousel-inner">--}}
-    {{--        @foreach($images as $image)--}}
-    {{--        <div class="carousel-item active">--}}
-    {{--            <img class="d-block w-100" src="{{"/img/".$image->path}}" alt="First slide">--}}
-    {{--        </div>--}}
-    {{--        @endforeach--}}
-    {{--    </div>--}}
-    {{--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">--}}
-    {{--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
-    {{--        <span class="sr-only">Previous</span>--}}
-    {{--    </a>--}}
-    {{--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">--}}
-    {{--        <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
-    {{--        <span class="sr-only">Next</span>--}}
-    {{--    </a>--}}
-    {{--</div>--}}
-
-
-    {{--<div id="slider" class="carousel slide" data-bs-ride="carousel">--}}
-    {{--    <div class="carousel-indicators">--}}
-    {{--        <button type="button" data-bs-target="#slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>--}}
-    {{--        <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slide 2"></button>--}}
-    {{--        <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slide 3"></button>--}}
-    {{--    </div>--}}
-    {{--    <div class="carousel-inner">--}}
-    {{--        @foreach($images as $image)--}}
-    {{--        <div class="carousel-item active">--}}
-    {{--            <img src="{{"/img/".$image->path}}" class="d-block w-100" alt="{{$image->alt}}">--}}
-    {{--        </div>--}}
-    {{--        @endforeach--}}
-    {{--    </div>--}}
-    {{--    <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">--}}
-    {{--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
-    {{--        <span class="visually-hidden">Previous</span>--}}
-    {{--    </button>--}}
-    {{--    <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">--}}
-    {{--        <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
-    {{--        <span class="visually-hidden">Next</span>--}}
-    {{--    </button>--}}
-    {{--</div>--}}
     <div class="container col col-lg-8 col-xl-6 mx-auto d-flex flex-column justify-content-center">
         <div class="h1 my-5 row d-flex justify-content-center">{{$rental->name}}</div>
         <div class="row mb-5">
@@ -124,15 +78,6 @@
             </div>
             <div class="col fw-bold">{{$rental->power}}</div>
         </div>
-        <div class="my-2 row">
-            <div class="col-12 col-md">
-                <img class="rounded me-1" src="/img/list-view-icon.svg" alt="price"
-                     style="height: 30px; width: 30px;">
-                Kategorija:
-            </div>
-            <div class="col fw-bold">{{$rental->category->name}}</div>
-        </div>
-
         <div class="my-2 row">
             <div class="col-12 col-md">
                 <img class="rounded me-1" src="/img/more-info-icon.svg" alt="price"
